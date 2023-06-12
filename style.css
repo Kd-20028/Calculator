@@ -1,0 +1,127 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calbody {
+    width: 20%;
+    height: 60%;
+    background-color: lightgray;
+    padding: 30px;
+    padding-bottom: 80px;
+    padding-top: 10px;
+    border: 8px solid #3f3d3b; 
+    border-radius: 16px;
+    box-shadow: 5px 10px #272a25;
+
+}
+
+.content {
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.undo {
+    width: 48%;
+    height: 15%;
+    background-color: #8bc34a;
+    border: none;
+    border-radius: 6px;
+
+}
+
+ .number, .operator {
+    width: 23%;
+    height: 15%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    font-size: 18px;
+}
+
+.displayborder {
+    height: 20%;
+    width: 100%;
+    background-color: #3f3d3b;
+    border: 1px solid #272a25;
+    border-radius: 6px;
+    filter: drop-shadow(.0em .0em .80em #3f3d3b );
+    margin-bottom: 15px;
+    justify-content: center;
+    display: flex;
+}
+
+.display {
+    align-self: center;
+    border-radius: 6px;
+    width: 90%;
+    height: 75%;
+    background-color: #536670;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    opacity: .8;
+}
+
+@import url('https://fonts.cdnfonts.com/css/scientific-calculator-lcd');
+
+.equation, .total {
+    font-family: 'Scientific Calculator LCD', sans-serif;
+    padding-right: 20px;
+    font-size: 22px;
+    margin: 0%;
+}
+
+.total {
+    margin: 0%;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 38px;
+}
+
+.equation {
+    padding-top: 10px;
+}
+
+ .left-lines, .right-lines {
+    display: flex;
+    padding: 0%;
+    margin: 0%;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 25px;
+    align-items: center;
+    width: 30%;
+}
+
+.text {
+    font-weight: bold;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    height: 10%;
+    justify-content: space-evenly;
+}
+
+.left-lines, .right-lines{
+    font-size: 16px;
+    font-weight: bold;
+    flex-direction: column;
+}
+
+.topline{
+    color: #8bc34a;
+}
+
+.bottomline {
+    color: white;
+}
