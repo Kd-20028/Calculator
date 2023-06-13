@@ -8,23 +8,25 @@ body{
 }
 
 .calbody {
-    width: 20%;
-    height: 60%;
+    min-width: 20%;
+    max-width: 20%;
+    min-height: 60%;
     background-color: lightgray;
     padding: 30px;
-    padding-bottom: 80px;
+    padding-bottom: 40px;
     padding-top: 10px;
     border: 8px solid #3f3d3b; 
     border-radius: 16px;
     box-shadow: 5px 10px #272a25;
-
 }
 
 .content {
-    height: 80%;
+    margin-bottom: 10px;
+    height: 450px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    flex: 1;
 }
 
 .undo {
@@ -47,7 +49,7 @@ body{
 }
 
 .displayborder {
-    height: 20%;
+    min-height: 100px;
     width: 100%;
     background-color: #3f3d3b;
     border: 1px solid #272a25;
@@ -56,18 +58,24 @@ body{
     margin-bottom: 15px;
     justify-content: center;
     display: flex;
+    flex-shrink: 0;
+    flex-grow: 1;
 }
 
 .display {
     align-self: center;
     border-radius: 6px;
     width: 90%;
-    height: 75%;
+    min-height: 75%;
     background-color: #536670;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     opacity: .8;
+    word-wrap: break-word;
+    word-break: break-all;
+    margin: 10px;
+    padding-left: 10px; 
 }
 
 @import url('https://fonts.cdnfonts.com/css/scientific-calculator-lcd');
@@ -75,15 +83,21 @@ body{
 .equation, .total {
     font-family: 'Scientific Calculator LCD', sans-serif;
     padding-right: 20px;
-    font-size: 22px;
+    font-size: 15px;
     margin: 0%;
+    display: flex;
+    flex-wrap: wrap;
+    letter-spacing: .1em;
+    word-wrap: break-word;
+    word-break: break-all;
+    
 }
 
 .total {
     margin: 0%;
-    margin-top: 5px;
+    margin-top:10px;
     margin-bottom: 20px;
-    font-size: 38px;
+    font-size: 25px;    
 }
 
 .equation {

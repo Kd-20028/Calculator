@@ -6,9 +6,26 @@ document.addEventListener("DOMContentLoaded", function() {
     const subtraction =  document.querySelector("#subtract"); 
     const multiplication = document.querySelector("#multiply"); 
     const division = document.querySelector("#divide"); 
+    const equals = document.querySelector("#equal"); 
+    const clear = document.querySelector(".clear"); 
+    const deleteBtn = document.querySelector(".delete"); 
+    const decimal = document.querySelector("#decimal"); 
+   
 
     let displayValue = " "; 
     let historyValue = " "; 
+    let previousAnswer = null; // Variable to store the previous answer
+
+    function formatNumber(number) {
+        const MAX_DIGITS = 10; // Maximum number of digits before converting to exponential form
+      
+        // Convert to exponential form if the number exceeds the maximum digits
+        if (number.length >= MAX_DIGITS) {
+          return number.toExponential();
+        }
+      
+        return number.toString(); // Return the number as is if it doesn't exceed the maximum digits
+      }
 
     function add(a, b){
         return a + b; 
@@ -29,14 +46,11 @@ document.addEventListener("DOMContentLoaded", function() {
         return a / b; 
     }
 
-    let num1;
-    let num2;
-    let operator; 
 
     function operate(num1, operator, num2){
         switch (operator) {
             case "+":
-            return add(num1, num2);
+            return add(+num1, +num2);
             case "-":
             return subtract(num1, num2);
             case "*":
@@ -44,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
             case "/":
             return divide(num1, num2);
             default:
-            return "Error: Invalid operator!";
+            return "Error";
         }
     }
 
@@ -56,13 +70,91 @@ document.addEventListener("DOMContentLoaded", function() {
         historyValue += clickedNumber; 
         history.textContent = historyValue; 
     }
+    
 
-    let equationList = []; 
+   function setDisplay(input){
+        history.textContent = input; 
+        historyValue = input; 
+        display.textContent = input; 
+        displayValue = input; 
+   }
+    
+    
+    let equationString = "";  
 
     numbersBtn.forEach(function(number){
         number.addEventListener("click", handleNumberClick); 
-        equationList.push(number); 
+        number.addEventListener("click", () => {
+             equationString += number.textContent; 
+
+        }); 
     });
 
-   
+
+    
+    addition.addEventListener("click", handleNumberClick); 
+    addition.addEventListener("click", () => {
+          equationString += (" " + addition.textContent + " ") ; 
+    }); 
+
+    subtraction.addEventListener("click", handleNumberClick); 
+    subtraction.addEventListener("click", () => {
+          equationString += (" " + subtraction.textContent + " ") ; 
+    }); 
+
+    multiplication.addEventListener("click", handleNumberClick); 
+    multiplication.addEventListener("click", () => {
+          equationString += (" " + multiplication.textContent + " ") ; 
+    }); 
+
+    division.addEventListener("click", handleNumberClick); 
+    division.addEventListener("click", () => {
+          equationString += (" " + division.textContent + " ") ; 
+    }); 
+
+    equals.addEventListener("click", handleNumberClick); 
+    equals.addEventListener("click", () => {
+        equationString = equationString.replace(/(\d+(?:\.\d+)?)(?!\.)|(?<!\.)\b(\D+)\b(?!$)/g, "$1$2 ");  
+        let equationList = equationString.split(" "); 
+        equationList = equationList.filter((str) => str !== '');
+        let answer = operate(+equationList[0], equationList[1], +equationList[2]);
+    
+        
+        setDisplay(answer); 
+
+        equationString = answer; 
+       
+    }); 
+
+    clear.addEventListener("click", () => {
+        setDisplay(""); 
+        equationString = "";
+        
+    })
+
+    deleteBtn.addEventListener("click", () => {
+        equationString = equationString.replace(/\s+/g, '');
+        if (equationString.length === 1){
+            equationString = "";
+        }
+        else{
+            equationString = equationString.substring(0,equationString.length-1);
+        }
+       
+        setDisplay(equationString); 
+
+        equationString = equationString.replaceAll(/(\d+)(\D+)/g, "$1 $2"); 
+        equationString += " "; 
+    })
+
+
+    decimal.addEventListener("click", () => {
+        equationString = equationString.replace(/\s+/g, '');
+        equationString = equationString + ".";
+        setDisplay(equationString); 
+    })             
+
+    
+
+    console.log(equationString); 
 });
