@@ -114,8 +114,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Event listener for the clear button
     clear.addEventListener("click", () => {
-        setDisplay(""); // Clear the display
-        equationString = ""; // Clear the equation string
+        setDisplay("0"); // Clear the display
+        equationString = "0"; // Clear the equation string
     });
 
     // Event listener for the delete button
