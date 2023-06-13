@@ -1,15 +1,20 @@
+
+
 body{
     width: 100vw;
     height: 100vh;
     box-sizing: border-box;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+  
 }
 
+
 .calbody {
-    min-width: 20%;
-    max-width: 20%;
+    min-width: 300px;
+    max-width: 400px;
     min-height: 60%;
     background-color: lightgray;
     padding: 30px;
@@ -148,3 +153,4 @@ button:active {
 .bottomline {
     color: white;
 }
+
