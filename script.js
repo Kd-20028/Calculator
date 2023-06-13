@@ -14,18 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let displayValue = " "; 
     let historyValue = " "; 
-    let previousAnswer = null; // Variable to store the previous answer
 
-    function formatNumber(number) {
-        const MAX_DIGITS = 10; // Maximum number of digits before converting to exponential form
-      
-        // Convert to exponential form if the number exceeds the maximum digits
-        if (number.length >= MAX_DIGITS) {
-          return number.toExponential();
-        }
-      
-        return number.toString(); // Return the number as is if it doesn't exceed the maximum digits
-      }
 
     function add(a, b){
         return a + b; 
@@ -114,7 +103,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     equals.addEventListener("click", handleNumberClick); 
     equals.addEventListener("click", () => {
-        equationString = equationString.replace(/(\d+(?:\.\d+)?)(?!\.)|(?<!\.)\b(\D+)\b(?!$)/g, "$1$2 ");  
+        equationString = equationString.replace(/\s+/g, '');
+        equationString = equationString.replaceAll(/(\d+(?:\.\d+)?)(?!\.)|(?<!\.)\b(\D+)\b(?!$)/g, "$1$2 ");
         let equationList = equationString.split(" "); 
         equationList = equationList.filter((str) => str !== '');
         let answer = operate(+equationList[0], equationList[1], +equationList[2]);
@@ -143,14 +133,19 @@ document.addEventListener("DOMContentLoaded", function() {
        
         setDisplay(equationString); 
 
-        equationString = equationString.replaceAll(/(\d+)(\D+)/g, "$1 $2"); 
-        equationString += " "; 
+        equationString = equationString.replaceAll(/(\d+(?:\.\d+)?)(?!\.)|(?<!\.)\b(\D+)\b(?!$)/g, "$1$2 ");
+
     })
 
 
     decimal.addEventListener("click", () => {
         equationString = equationString.replace(/\s+/g, '');
-        equationString = equationString + ".";
+        if (equationString.includes(".")){
+            equationString = equationString; 
+        }
+        else{
+            equationString = equationString + ".";
+        }
         setDisplay(equationString); 
     })             
 

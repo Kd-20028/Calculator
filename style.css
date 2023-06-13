@@ -48,6 +48,15 @@ body{
     font-size: 18px;
 }
 
+button:hover {background-color: #efefef6f;}
+button.undo:hover {background-color: #8bc34ada}
+
+button:active {
+  background-color: #efefef6f;
+  box-shadow: 0 4px #666666c6;
+  transform: translateY(4px);
+}
+
 .displayborder {
     min-height: 100px;
     width: 100%;
