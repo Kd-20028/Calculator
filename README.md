@@ -12,7 +12,7 @@ This is a simple calculator app built with HTML, CSS, and JavaScript. It allows 
     * The decimal button adds a decimal point to the input.
 
 ## Usage
-    * Visit https://kd-20028.github.io/Calculator/
+    * Visit [https://kd-20028.github.io/Calculator/]
     * Use the calculator by clicking on the number buttons, operator buttons, and other control buttons.
     * The input history and the result will be displayed on the screen.
     * Click the clear button to reset the calculator.
@@ -26,6 +26,6 @@ This is a simple calculator app built with HTML, CSS, and JavaScript. It allows 
     * Regular expressions for parsing and formatting the input equation.
     * Manipulating the DOM (Document Object Model) to update and display the results.
 
-### Author: [Keshawn Davis] - [keshawndavis472@gmail.com]
+### Author: Keshawn Davis - [keshawndavis472@gmail.com]
 
 ### Acknowledgements: This calculator app is a basic implementation and can be enhanced with additional features and improvements.
